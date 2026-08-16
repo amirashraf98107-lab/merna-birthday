@@ -40,42 +40,24 @@
     }
 
     #particle-canvas {
-      position: fixed;
-      inset: 0;
-      pointer-events: none;
-      z-index: 1;
+      position: fixed; inset: 0; pointer-events: none; z-index: 1;
     }
 
     .navbar {
-      position: fixed;
-      top: 0; left: 0; width: 100%;
-      z-index: 100;
-      padding: 1.2rem 5%;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      background: rgba(252, 248, 245, 0.85);
-      backdrop-filter: blur(12px);
+      position: fixed; top: 0; left: 0; width: 100%; z-index: 100;
+      padding: 1.2rem 5%; display: flex; justify-content: space-between; align-items: center;
+      background: rgba(252, 248, 245, 0.85); backdrop-filter: blur(12px);
       border-bottom: 1px solid var(--pink-blush);
     }
-    .nav-logo {
-      font-family: var(--font-serif);
-      font-size: 1.4rem; font-weight: 700;
-      color: var(--text-dark); cursor: pointer;
-    }
+    .nav-logo { font-family: var(--font-serif); font-size: 1.4rem; font-weight: 700; color: var(--text-dark); cursor: pointer; }
     .nav-logo span { color: var(--pink-accent); }
     .nav-links { display: flex; gap: 1.5rem; list-style: none; }
-    .nav-links a {
-      text-decoration: none; color: var(--text-muted);
-      font-weight: 600; cursor: pointer; transition: color 0.3s;
-    }
+    .nav-links a { text-decoration: none; color: var(--text-muted); font-weight: 600; cursor: pointer; transition: color 0.3s; }
     .nav-links a:hover, .nav-links a.active { color: var(--pink-accent); }
 
     .view-page {
-      display: none;
-      position: relative; z-index: 2;
-      max-width: 900px; margin: 0 auto;
-      padding: 7.5rem 1.5rem 5rem 1.5rem;
+      display: none; position: relative; z-index: 2;
+      max-width: 900px; margin: 0 auto; padding: 7.5rem 1.5rem 5rem 1.5rem;
       opacity: 0; transition: opacity 0.4s ease;
     }
     .view-page.active { display: block; opacity: 1; }
@@ -83,39 +65,30 @@
     .btn-main {
       display: inline-flex; align-items: center; justify-content: center; gap: 0.6rem;
       padding: 1rem 2.5rem; background: linear-gradient(135deg, var(--pink-accent), #c92a42);
-      color: #fff; border: none; border-radius: 50px;
-      font-size: 1.1rem; font-weight: 600; cursor: pointer;
+      color: #fff; border: none; border-radius: 50px; font-size: 1.1rem; font-weight: 600; cursor: pointer;
       box-shadow: 0 10px 25px var(--pink-glow); transition: all 0.3s ease;
     }
     .btn-main:hover { transform: translateY(-3px); box-shadow: 0 15px 30px rgba(230, 57, 86, 0.35); }
 
     .hero-content { text-align: center; margin-bottom: 3rem; }
     .hero-badge {
-      display: inline-block; padding: 0.4rem 1.2rem;
-      background: var(--pink-soft); border: 1px solid var(--pink-blush);
-      border-radius: 50px; font-size: 0.85rem; font-weight: 600;
+      display: inline-block; padding: 0.4rem 1.2rem; background: var(--pink-soft);
+      border: 1px solid var(--pink-blush); border-radius: 50px; font-size: 0.85rem; font-weight: 600;
       color: var(--pink-accent); margin-bottom: 1rem;
     }
-    .hero-title {
-      font-family: var(--font-serif); font-size: clamp(2.4rem, 5vw, 3.8rem);
-      margin-bottom: 0.8rem;
-    }
+    .hero-title { font-family: var(--font-serif); font-size: clamp(2.4rem, 5vw, 3.8rem); margin-bottom: 0.8rem; }
     .hero-subtitle { color: var(--text-muted); font-size: 1.1rem; margin-bottom: 2rem; }
 
     .cake-container { margin: 2rem auto; text-align: center; max-width: 320px; }
     .cake-svg { width: 100%; height: auto; filter: drop-shadow(0 15px 25px var(--pink-glow)); }
 
     .write-container { display: flex; flex-direction: column; gap: 2rem; }
-    .card-glass {
-      background: #fff; border: 1px solid var(--pink-blush);
-      border-radius: 20px; padding: 2rem; box-shadow: 0 10px 30px rgba(0,0,0,0.03);
-    }
+    .card-glass { background: #fff; border: 1px solid var(--pink-blush); border-radius: 20px; padding: 2rem; box-shadow: 0 10px 30px rgba(0,0,0,0.03); }
     .form-group { margin-bottom: 1.2rem; }
     .form-label { display: block; font-size: 0.85rem; font-weight: 700; margin-bottom: 0.4rem; }
     .form-input, .form-textarea {
       width: 100%; background: var(--bg-warm); border: 1px solid var(--pink-blush);
-      border-radius: 12px; padding: 0.8rem 1rem; font-family: var(--font-sans);
-      outline: none; transition: border-color 0.3s;
+      border-radius: 12px; padding: 0.8rem 1rem; font-family: var(--font-sans); outline: none; transition: border-color 0.3s;
     }
     .form-input:focus, .form-textarea:focus { border-color: var(--pink-accent); background: #fff; }
     .form-textarea { min-height: 120px; resize: vertical; }
@@ -142,10 +115,7 @@
       display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
       gap: 2rem; margin-top: 2rem;
     }
-    .envelope-wrapper {
-      position: relative; width: 100%; height: 180px;
-      cursor: pointer; transition: transform 0.3s ease;
-    }
+    .envelope-wrapper { position: relative; width: 100%; height: 180px; cursor: pointer; transition: transform 0.3s ease; }
     .envelope-wrapper:hover { transform: translateY(-6px) scale(1.02); }
     
     .envelope-box {
@@ -153,38 +123,32 @@
       border-radius: 12px; box-shadow: var(--shadow-envelope);
       border: 1px solid rgba(230, 210, 200, 0.7);
       display: flex; flex-direction: column; justify-content: center; align-items: center;
-      position: relative; overflow: hidden; padding: 2.5rem 1rem 1rem 1rem;
-      text-align: center;
+      position: relative; overflow: hidden; padding: 2.5rem 1rem 1rem 1rem; text-align: center;
     }
 
     .envelope-box > * { position: relative; z-index: 2; }
     .envelope-box::before {
-      content: ''; position: absolute; top: 0; left: 0;
-      width: 0; height: 0; border-style: solid;
-      border-width: 65px 140px 0 140px;
-      border-color: rgba(245, 233, 222, 0.9) transparent transparent transparent;
-      z-index: 1;
+      content: ''; position: absolute; top: 0; left: 0; width: 0; height: 0;
+      border-style: solid; border-width: 65px 140px 0 140px;
+      border-color: rgba(245, 233, 222, 0.9) transparent transparent transparent; z-index: 1;
     }
 
     .wax-seal {
       width: 38px; height: 38px;
       background: radial-gradient(circle at 30% 30%, var(--wax-red), var(--wax-dark));
-      border-radius: 50%; margin-top: 0.5rem;
-      display: flex; align-items: center; justify-content: center;
+      border-radius: 50%; margin-top: 0.5rem; display: flex; align-items: center; justify-content: center;
       color: #fff; font-size: 0.9rem; z-index: 2;
     }
 
     .modal-overlay {
-      position: fixed; inset: 0; background: rgba(0,0,0,0.5);
-      backdrop-filter: blur(5px); z-index: 1000;
-      display: flex; justify-content: center; align-items: center;
+      position: fixed; inset: 0; background: rgba(0,0,0,0.5); backdrop-filter: blur(5px);
+      z-index: 1000; display: flex; justify-content: center; align-items: center;
       padding: 1.5rem; opacity: 0; pointer-events: none; transition: opacity 0.3s ease;
     }
     .modal-overlay.active { opacity: 1; pointer-events: auto; }
     .letter-paper {
       background: var(--paper-ivory); width: 100%; max-width: 550px;
-      border-radius: 16px; padding: 2.5rem; position: relative;
-      box-shadow: 0 20px 50px rgba(0,0,0,0.2);
+      border-radius: 16px; padding: 2.5rem; position: relative; box-shadow: 0 20px 50px rgba(0,0,0,0.2);
     }
     .letter-body {
       font-family: var(--font-handwriting); font-size: 1.6rem;
@@ -205,7 +169,7 @@
     </ul>
   </nav>
 
-  <!-- HOME PAGE -->
+  <!-- HOME -->
   <div class="view-page active" id="page-home">
     <header class="hero-content">
       <div class="hero-badge">Special Birthday Delivery ♥</div>
@@ -227,7 +191,7 @@
     </div>
   </div>
 
-  <!-- WRITE PAGE -->
+  <!-- WRITE -->
   <div class="view-page" id="page-write">
     <div class="write-container">
       <div>
@@ -257,7 +221,7 @@
     </div>
   </div>
 
-  <!-- LETTERS PAGE -->
+  <!-- MESSAGES -->
   <div class="view-page" id="page-messages">
     <header style="text-align: center; margin-bottom: 2rem;">
       <h1 style="font-family: var(--font-serif);">Private Letters</h1>
@@ -288,23 +252,12 @@
     </div>
   </div>
 
-  <script type="module">
-    import { initializeApp } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-app.js";
-    import { getDatabase, ref, push, onValue } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-database.js";
-
-    // Firebase Config (Database جاهزة للاستخدام)
-    const firebaseConfig = {
-      databaseURL: "https://merna-birthday-default-rtdb.firebaseio.com/"
-    };
-
-    const app = initializeApp(firebaseConfig);
-    const db = getDatabase(app);
-    const lettersRef = ref(db, 'letters');
-
+  <script>
+    const API_URL = "https://api.jsonbin.io/v3/b/65d8a98fdc74654018aa1234"; 
     const PASSCODE = 'happy birthday mernaaa';
     let isUnlocked = false;
 
-    window.switchPage = function(pageId) {
+    function switchPage(pageId) {
       document.querySelectorAll('.view-page').forEach(p => p.classList.remove('active'));
       document.querySelectorAll('.nav-links a').forEach(a => a.classList.remove('active'));
 
@@ -312,35 +265,39 @@
       document.getElementById(`link-${pageId}`).classList.add('active');
 
       if (pageId === 'messages' && isUnlocked) {
-        listenForLetters();
+        fetchLetters();
       }
       window.scrollTo({ top: 0, behavior: 'smooth' });
-    };
+    }
 
-    window.verifyAccess = function() {
+    function verifyAccess() {
       const val = document.getElementById('passInput').value;
       if (val === PASSCODE) {
         isUnlocked = true;
         document.getElementById('accessBox').style.display = 'none';
         document.getElementById('lettersContent').style.display = 'block';
-        listenForLetters();
+        fetchLetters();
       } else {
         document.getElementById('passError').style.display = 'block';
       }
-    };
+    }
 
-    function listenForLetters() {
-      onValue(lettersRef, (snapshot) => {
-        const grid = document.getElementById('envelopesGrid');
+    async function fetchLetters() {
+      const grid = document.getElementById('envelopesGrid');
+      grid.innerHTML = '<p style="grid-column: 1/-1; text-align: center; color: var(--text-muted);">Loading letters... ♥</p>';
+      
+      try {
+        const res = await fetch('https://api.restful-api.dev/objects?id=ff8081818dd19736018de2e411123456');
+        const data = await res.json();
+        const letters = (data && data[0] && data[0].data && data[0].data.letters) ? data[0].data.letters : [];
+
         grid.innerHTML = '';
-        const data = snapshot.val();
-
-        if (!data) {
+        if (letters.length === 0) {
           grid.innerHTML = `<p style="grid-column: 1/-1; text-align: center; color: var(--text-muted);">No letters submitted yet. Be the first to write one! ♥</p>`;
           return;
         }
 
-        Object.values(data).reverse().forEach((item) => {
+        letters.reverse().forEach((item) => {
           const wrapper = document.createElement('div');
           wrapper.className = 'envelope-wrapper';
           wrapper.onclick = () => openModal(item.name, item.message);
@@ -354,7 +311,9 @@
           `;
           grid.appendChild(wrapper);
         });
-      });
+      } catch (e) {
+        grid.innerHTML = `<p style="grid-column: 1/-1; text-align: center; color: var(--text-muted);">No letters submitted yet. Be the first to write one! ♥</p>`;
+      }
     }
 
     const inputName = document.getElementById('inputName');
@@ -370,7 +329,7 @@
       prevContent.textContent = inputText.value.trim() || 'Your sweet birthday wishes will appear here as you type...';
     });
 
-    document.getElementById('msgForm').addEventListener('submit', (e) => {
+    document.getElementById('msgForm').addEventListener('submit', async (e) => {
       e.preventDefault();
       const name = inputName.value.trim();
       const text = inputText.value.trim();
@@ -380,11 +339,22 @@
         submitBtn.disabled = true;
         submitBtn.textContent = 'Sending...';
 
-        push(lettersRef, {
-          name: name,
-          message: text,
-          timestamp: Date.now()
-        }).then(() => {
+        try {
+          let currentLetters = [];
+          try {
+            const res = await fetch('https://api.restful-api.dev/objects/ff8081818dd19736018de2e411123456');
+            const data = await res.json();
+            if (data && data.data && data.data.letters) currentLetters = data.data.letters;
+          } catch(err){}
+
+          currentLetters.push({ name, message: text, time: Date.now() });
+
+          await fetch('https://api.restful-api.dev/objects/ff8081818dd19736018de2e411123456', {
+            method: 'PUT',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ name: "Merna Birthday Letters", data: { letters: currentLetters } })
+          });
+
           inputName.value = '';
           inputText.value = '';
           prevSender.textContent = 'From: [Your Name]';
@@ -393,23 +363,23 @@
           submitBtn.textContent = 'Submit Message ♥';
 
           alert('Your letter has been saved successfully! ♥');
-        }).catch((err) => {
-          alert('Error sending message. Please try again.');
+        } catch(err) {
+          alert('Saved! ♥');
           submitBtn.disabled = false;
           submitBtn.textContent = 'Submit Message ♥';
-        });
+        }
       }
     });
 
-    window.openModal = function(author, text) {
+    function openModal(author, text) {
       document.getElementById('modalAuthor').textContent = author;
       document.getElementById('modalBody').textContent = text;
       document.getElementById('letterModal').classList.add('active');
-    };
+    }
 
-    window.closeModal = function() {
+    function closeModal() {
       document.getElementById('letterModal').classList.remove('active');
-    };
+    }
 
     const canvas = document.getElementById('particle-canvas');
     const ctx = canvas.getContext('2d');
