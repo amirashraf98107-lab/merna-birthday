@@ -11,9 +11,6 @@
   <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@600;700&family=Playfair+Display:ital,wght@0,600;0,700;1,400&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
 
   <style>
-    /* ==========================================================================
-       1. VARS & BASE STYLES
-       ========================================================================== */
     :root {
       --bg-warm: #fcf8f5;
       --paper-ivory: #fffdf9;
@@ -42,7 +39,6 @@
       position: relative;
     }
 
-    /* Ambient Canvas */
     #particle-canvas {
       position: fixed;
       inset: 0;
@@ -50,7 +46,6 @@
       z-index: 1;
     }
 
-    /* Navbar */
     .navbar {
       position: fixed;
       top: 0; left: 0; width: 100%;
@@ -76,7 +71,6 @@
     }
     .nav-links a:hover, .nav-links a.active { color: var(--pink-accent); }
 
-    /* Page Views */
     .view-page {
       display: none;
       position: relative; z-index: 2;
@@ -86,7 +80,6 @@
     }
     .view-page.active { display: block; opacity: 1; }
 
-    /* Buttons */
     .btn-main {
       display: inline-flex; align-items: center; justify-content: center; gap: 0.6rem;
       padding: 1rem 2.5rem; background: linear-gradient(135deg, var(--pink-accent), #c92a42);
@@ -96,9 +89,6 @@
     }
     .btn-main:hover { transform: translateY(-3px); box-shadow: 0 15px 30px rgba(230, 57, 86, 0.35); }
 
-    /* ==========================================================================
-       HOME SECTION
-       ========================================================================== */
     .hero-content { text-align: center; margin-bottom: 3rem; }
     .hero-badge {
       display: inline-block; padding: 0.4rem 1.2rem;
@@ -112,16 +102,10 @@
     }
     .hero-subtitle { color: var(--text-muted); font-size: 1.1rem; margin-bottom: 2rem; }
 
-    /* Cake Animation */
     .cake-container { margin: 2rem auto; text-align: center; max-width: 320px; }
     .cake-svg { width: 100%; height: auto; filter: drop-shadow(0 15px 25px var(--pink-glow)); }
 
-    /* ==========================================================================
-       WRITE MESSAGE SECTION (Letter Top, Form Bottom)
-       ========================================================================== */
-    .write-container {
-      display: flex; flex-direction: column; gap: 2rem;
-    }
+    .write-container { display: flex; flex-direction: column; gap: 2rem; }
     .card-glass {
       background: #fff; border: 1px solid var(--pink-blush);
       border-radius: 20px; padding: 2rem; box-shadow: 0 10px 30px rgba(0,0,0,0.03);
@@ -136,7 +120,6 @@
     .form-input:focus, .form-textarea:focus { border-color: var(--pink-accent); background: #fff; }
     .form-textarea { min-height: 120px; resize: vertical; }
 
-    /* Envelope Preview placed on TOP */
     .preview-card {
       background: var(--paper-cream); border: 1px dashed var(--pink-blush);
       border-radius: 16px; padding: 2rem; min-height: 220px;
@@ -150,9 +133,6 @@
     .preview-sender { font-weight: 700; color: var(--pink-accent); margin-bottom: 0.5rem; }
     .preview-content { font-family: var(--font-handwriting); font-size: 1.6rem; color: #2b1f24; white-space: pre-wrap; line-height: 1.4; }
 
-    /* ==========================================================================
-       PROTECTED LETTERS / ENVELOPES GRID
-       ========================================================================== */
     .access-box {
       max-width: 400px; margin: 3rem auto; text-align: center;
       background: #fff; padding: 2.5rem; border-radius: 20px;
@@ -177,11 +157,7 @@
       text-align: center;
     }
 
-    .envelope-box > * {
-      position: relative;
-      z-index: 2;
-    }
-
+    .envelope-box > * { position: relative; z-index: 2; }
     .envelope-box::before {
       content: ''; position: absolute; top: 0; left: 0;
       width: 0; height: 0; border-style: solid;
@@ -198,7 +174,6 @@
       color: #fff; font-size: 0.9rem; z-index: 2;
     }
 
-    /* Modal Letter Overlay */
     .modal-overlay {
       position: fixed; inset: 0; background: rgba(0,0,0,0.5);
       backdrop-filter: blur(5px); z-index: 1000;
@@ -219,10 +194,8 @@
 </head>
 <body>
 
-  <!-- Particle Background -->
   <canvas id="particle-canvas"></canvas>
 
-  <!-- Navbar -->
   <nav class="navbar">
     <div class="nav-logo" onclick="switchPage('home')">Merna <span>♥</span></div>
     <ul class="nav-links">
@@ -232,7 +205,7 @@
     </ul>
   </nav>
 
-  <!-- PAGE 1: HOME -->
+  <!-- HOME PAGE -->
   <div class="view-page active" id="page-home">
     <header class="hero-content">
       <div class="hero-badge">Special Birthday Delivery ♥</div>
@@ -254,11 +227,9 @@
     </div>
   </div>
 
-  <!-- PAGE 2: WRITE MESSAGE -->
+  <!-- WRITE PAGE -->
   <div class="view-page" id="page-write">
     <div class="write-container">
-      
-      <!-- Live Preview placed FIRST / TOP -->
       <div>
         <div class="preview-card">
           <div class="preview-header">Live Letter Preview</div>
@@ -270,7 +241,6 @@
         </div>
       </div>
 
-      <!-- Form placed BELOW -->
       <div class="card-glass">
         <form id="msgForm">
           <div class="form-group">
@@ -281,21 +251,19 @@
             <label class="form-label">Your Birthday Message</label>
             <textarea id="inputText" class="form-textarea" placeholder="Write something lovely for Merna..." required></textarea>
           </div>
-          <button type="submit" class="btn-main" style="width: 100%;">Submit Message ♥</button>
+          <button type="submit" id="submitBtn" class="btn-main" style="width: 100%;">Submit Message ♥</button>
         </form>
       </div>
-
     </div>
   </div>
 
-  <!-- PAGE 3: MESSAGES / PROTECTED LETTERS -->
+  <!-- LETTERS PAGE -->
   <div class="view-page" id="page-messages">
     <header style="text-align: center; margin-bottom: 2rem;">
       <h1 style="font-family: var(--font-serif);">Private Letters</h1>
       <p style="color: var(--text-muted);">Exclusive page for viewing all birthday wishes</p>
     </header>
 
-    <!-- Password Access Guard -->
     <div class="access-box" id="accessBox">
       <h3 style="margin-bottom: 0.5rem; font-family: var(--font-serif);">Access Restricted</h3>
       <p style="font-size: 0.9rem; color: var(--text-muted); margin-bottom: 1.5rem;">Enter the passcode to unlock and view the letters.</p>
@@ -304,13 +272,11 @@
       <p id="passError" style="color: var(--pink-accent); font-size: 0.85rem; margin-top: 0.8rem; display: none;">Incorrect passcode!</p>
     </div>
 
-    <!-- Hidden Letters Area -->
     <div id="lettersContent" style="display: none;">
       <div class="envelopes-grid" id="envelopesGrid"></div>
     </div>
   </div>
 
-  <!-- Modal Display Letter -->
   <div class="modal-overlay" id="letterModal">
     <div class="letter-paper">
       <h3 style="font-family: var(--font-serif); color: var(--pink-accent);">Dear Merna,</h3>
@@ -322,33 +288,23 @@
     </div>
   </div>
 
-  <script>
-    /* ==========================================================================
-       STORAGE & APP STATE
-       ========================================================================== */
-    const STORAGE_KEY = 'merna_letters_data';
+  <script type="module">
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-app.js";
+    import { getDatabase, ref, push, onValue } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-database.js";
+
+    // Firebase Config (Database جاهزة للاستخدام)
+    const firebaseConfig = {
+      databaseURL: "https://merna-birthday-default-rtdb.firebaseio.com/"
+    };
+
+    const app = initializeApp(firebaseConfig);
+    const db = getDatabase(app);
+    const lettersRef = ref(db, 'letters');
+
     const PASSCODE = 'happy birthday mernaaa';
     let isUnlocked = false;
 
-    function getMessages() {
-      const saved = localStorage.getItem(STORAGE_KEY);
-      return saved ? JSON.parse(saved) : [];
-    }
-
-    function saveMessage(name, message) {
-      const list = getMessages();
-      list.unshift({
-        name: name,
-        message: message,
-        date: new Date().toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' })
-      });
-      localStorage.setItem(STORAGE_KEY, JSON.stringify(list));
-    }
-
-    /* ==========================================================================
-       PAGE NAVIGATION
-       ========================================================================== */
-    function switchPage(pageId) {
+    window.switchPage = function(pageId) {
       document.querySelectorAll('.view-page').forEach(p => p.classList.remove('active'));
       document.querySelectorAll('.nav-links a').forEach(a => a.classList.remove('active'));
 
@@ -356,58 +312,51 @@
       document.getElementById(`link-${pageId}`).classList.add('active');
 
       if (pageId === 'messages' && isUnlocked) {
-        renderEnvelopes();
+        listenForLetters();
       }
       window.scrollTo({ top: 0, behavior: 'smooth' });
-    }
+    };
 
-    /* ==========================================================================
-       PROTECTION & ACCESS
-       ========================================================================== */
-    function verifyAccess() {
+    window.verifyAccess = function() {
       const val = document.getElementById('passInput').value;
       if (val === PASSCODE) {
         isUnlocked = true;
         document.getElementById('accessBox').style.display = 'none';
         document.getElementById('lettersContent').style.display = 'block';
-        renderEnvelopes();
+        listenForLetters();
       } else {
         document.getElementById('passError').style.display = 'block';
       }
-    }
+    };
 
-    /* ==========================================================================
-       RENDER ENVELOPES
-       ========================================================================== */
-    function renderEnvelopes() {
-      const grid = document.getElementById('envelopesGrid');
-      const list = getMessages();
-      grid.innerHTML = '';
+    function listenForLetters() {
+      onValue(lettersRef, (snapshot) => {
+        const grid = document.getElementById('envelopesGrid');
+        grid.innerHTML = '';
+        const data = snapshot.val();
 
-      if (list.length === 0) {
-        grid.innerHTML = `<p style="grid-column: 1/-1; text-align: center; color: var(--text-muted);">No letters submitted yet. Be the first to write one! ♥</p>`;
-        return;
-      }
+        if (!data) {
+          grid.innerHTML = `<p style="grid-column: 1/-1; text-align: center; color: var(--text-muted);">No letters submitted yet. Be the first to write one! ♥</p>`;
+          return;
+        }
 
-      list.forEach((item) => {
-        const wrapper = document.createElement('div');
-        wrapper.className = 'envelope-wrapper';
-        wrapper.onclick = () => openModal(item.name, item.message);
+        Object.values(data).reverse().forEach((item) => {
+          const wrapper = document.createElement('div');
+          wrapper.className = 'envelope-wrapper';
+          wrapper.onclick = () => openModal(item.name, item.message);
 
-        wrapper.innerHTML = `
-          <div class="envelope-box">
-            <div style="font-family: var(--font-serif); font-weight: 700;">For Merna ♥</div>
-            <div style="font-size: 0.85rem; color: var(--pink-accent); font-weight: 600; margin-top: 0.3rem;">From: ${item.name}</div>
-            <div class="wax-seal">♥</div>
-          </div>
-        `;
-        grid.appendChild(wrapper);
+          wrapper.innerHTML = `
+            <div class="envelope-box">
+              <div style="font-family: var(--font-serif); font-weight: 700;">For Merna ♥</div>
+              <div style="font-size: 0.85rem; color: var(--pink-accent); font-weight: 600; margin-top: 0.3rem;">From: ${item.name}</div>
+              <div class="wax-seal">♥</div>
+            </div>
+          `;
+          grid.appendChild(wrapper);
+        });
       });
     }
 
-    /* ==========================================================================
-       FORM & LIVE PREVIEW
-       ========================================================================== */
     const inputName = document.getElementById('inputName');
     const inputText = document.getElementById('inputText');
     const prevSender = document.getElementById('prevSender');
@@ -425,35 +374,43 @@
       e.preventDefault();
       const name = inputName.value.trim();
       const text = inputText.value.trim();
+      const submitBtn = document.getElementById('submitBtn');
 
       if (name && text) {
-        saveMessage(name, text);
-        
-        inputName.value = '';
-        inputText.value = '';
-        prevSender.textContent = 'From: [Your Name]';
-        prevContent.textContent = 'Your sweet birthday wishes will appear here as you type...';
+        submitBtn.disabled = true;
+        submitBtn.textContent = 'Sending...';
 
-        alert('Your letter has been saved successfully! ♥');
+        push(lettersRef, {
+          name: name,
+          message: text,
+          timestamp: Date.now()
+        }).then(() => {
+          inputName.value = '';
+          inputText.value = '';
+          prevSender.textContent = 'From: [Your Name]';
+          prevContent.textContent = 'Your sweet birthday wishes will appear here as you type...';
+          submitBtn.disabled = false;
+          submitBtn.textContent = 'Submit Message ♥';
+
+          alert('Your letter has been saved successfully! ♥');
+        }).catch((err) => {
+          alert('Error sending message. Please try again.');
+          submitBtn.disabled = false;
+          submitBtn.textContent = 'Submit Message ♥';
+        });
       }
     });
 
-    /* ==========================================================================
-       MODAL CONTROLS
-       ========================================================================== */
-    function openModal(author, text) {
+    window.openModal = function(author, text) {
       document.getElementById('modalAuthor').textContent = author;
       document.getElementById('modalBody').textContent = text;
       document.getElementById('letterModal').classList.add('active');
-    }
+    };
 
-    function closeModal() {
+    window.closeModal = function() {
       document.getElementById('letterModal').classList.remove('active');
-    }
+    };
 
-    /* ==========================================================================
-       CANVAS PARTICLES
-       ========================================================================== */
     const canvas = document.getElementById('particle-canvas');
     const ctx = canvas.getContext('2d');
     let w = canvas.width = window.innerWidth;
